@@ -153,16 +153,102 @@ class BinomialHeap
         return newHead;
     }
 
-    void visualizeTree(Node* node, string prefix, bool isLast) 
+    void visualizeTree(Node* node, string prefix, bool isLast, bool isRoot = false) 
     {
         if (!node) return;
-        cout << prefix << (isLast ? "\\--" : "|--") << "[" << node->key << " : degree " << node->degree << "]\n";
+        cout << prefix;
+        if (!isRoot) 
+        {
+            cout << (isLast ? "\\-- " : "+-- ");
+        }
+        
+        cout << node->key << (isRoot ? " [root, deg " : " [deg ") << node->degree << "]\n";
         
         Node* child = node->child;
-        while (child) {
-            visualizeTree(child, prefix + (isLast ? "   " : "|  "), child->sibling == nullptr);
+        while (child) 
+        {
+            visualizeTree(child, prefix + (isRoot ? "" : (isLast ? "    " : "│   ")), child->sibling == nullptr, false);
             child = child->sibling;
         }
+    }
+
+    bool isHeapOrderValid(Node* root) 
+    {
+        if (!root) return true;
+        queue<Node*> q;
+        q.push(root);
+        while (!q.empty()) 
+        {
+            Node* curr = q.front(); 
+            q.pop();
+            Node* child = curr->child;
+            while (child) 
+            {
+                if (child->key < curr->key) return false;
+                q.push(child);
+                child = child->sibling;
+            }
+        }
+        return true;
+    }
+
+    bool validateEntireHeap() 
+    {
+        Node* curr = this->head;
+        while (curr) 
+        {
+            if (!isHeapOrderValid(curr)) return false;
+            curr = curr->sibling;
+        }
+        return true;
+    }
+
+    string getLevelOrderString(Node* root) 
+    {
+        if (!root) return "";
+        string res = "    Level-order (sorted per level): ";
+        vector<vector<int>> levels;
+        queue<pair<Node*, int>> q;
+        q.push({root, 0});
+        while (!q.empty()) 
+        {
+            auto nodeset = q.front(); 
+            q.pop();
+            Node* node = nodeset.first;
+            int depth = nodeset.second;
+            if (depth >= levels.size()) levels.push_back(vector<int>());
+            levels[depth].push_back(node->key);
+            
+            Node* child = node->child;
+            while (child) 
+            {
+                q.push({child, depth + 1});
+                child = child->sibling;
+            }
+        }
+        for (size_t i = 0; i < levels.size(); i++) 
+        {
+            sort(levels[i].begin(), levels[i].end());
+            res += "L" + to_string(i) + ":{";
+            for (size_t j = 0; j < levels[i].size(); j++) 
+            {
+                res += to_string(levels[i][j]) + (j + 1 < levels[i].size() ? "," : "");
+            }
+            res += "} ";
+        }
+        return res;
+    }
+
+    string getBinaryRepresentation(int n)
+    {
+        if (n == 0) return "0";
+        string bin = "";
+        while (n > 0)
+        {
+            bin = to_string(n % 2) + bin;
+            n /= 2;
+        }
+        return bin;
     }
 
     public:
@@ -347,39 +433,90 @@ class BinomialHeap
         }
     }
 
-    void visualizeHeap(int h) 
+    void visualizeHeap(int h, string label = "") 
     {
-        cout << "=== Visualizing Heap H" << h << " ===\n";
-        Node* curr = this->head;
-        if (!curr) 
+        cout << ">>> Visualizing Heap H" << h << " " << label << "(Heap size: " << this->size << ")\n";
+        if (this->size == 0 || this->head == nullptr) 
         {
-            cout << "Heap is empty.\n";
-            cout << "===========================\n";
+            cout << "    (empty heap)\n    Binary size: 0 -> no trees\n";
             return;
         }
+
+        string binRep = getBinaryRepresentation(this->size);
+        cout << "    Binary: " << binRep << "  => trees: ";
+        
+        int minKey = this->head->key;
+        int minDegree = this->head->degree;
+        int maxDegree = 0;
+        int treeCount = 0;
+        
+        Node* curr = this->head;
         while (curr) 
         {
-            cout << "Root B" << curr->degree << " ->\n";
-            visualizeTree(curr, "", true);
+            cout << "B" << curr->degree << "  ";
+            if (curr->key < minKey) 
+            {
+                minKey = curr->key;
+                minDegree = curr->degree;
+            }
+            if (curr->degree > maxDegree) maxDegree = curr->degree;
+            treeCount++;
             curr = curr->sibling;
         }
-        cout << "===========================\n";
+        cout << "\n    Minimum key: " << minKey << " (in B" << minDegree << ")\n";
+        cout << "    Number of trees: " << treeCount << ", max degree: " << maxDegree << "\n";
+        cout << "    Heap-order valid: " << (validateEntireHeap() ? "YES" : "NO") << "\n\n";
+
+        curr = this->head;
+        while (curr) 
+        {
+            int treeSize = 1 << curr->degree; // 2^degree
+            cout << "    --- Binomial Tree B" << curr->degree << " (root " << curr->key << ", size " << treeSize << ") ---\n";
+            cout << "    ";
+            visualizeTree(curr, "    ", true, true);
+            cout << getLevelOrderString(curr) << "\n\n";
+            curr = curr->sibling;
+        }
     }
 
-    void visualizeUnion(int h1_id, int h2_id, BinomialHeap &other)
+    void printRootDegrees(Node* head, string label)
     {
-        cout << "=== Visualizing Union of H" << h1_id << " and H" << h2_id << " ===\n";
-        cout << "--- Before Union H" << h1_id << " ---\n";
-        this->visualizeHeap(h1_id);
-        cout << "--- Before Union H" << h2_id << " ---\n";
-        other.visualizeHeap(h2_id);
+        cout << "  Initial root degrees " << label << ": ";
+        Node* curr = head;
+        if (!curr) cout << "empty ";
+        while(curr)
+        {
+            cout << "B" << curr->degree << "(root " << curr->key << ") ";
+            curr = curr->sibling;
+        }
+        cout << "\n";
+    }
+
+    void visualizeUnion(int dest_id, int src_id, BinomialHeap &other)
+    {
+        cout << "UNION OPERATION: H" << dest_id << " <- Union(H" << dest_id << ", H" << src_id << ")\n";
+        this->visualizeHeap(dest_id, "(before union) ");
+        other.visualizeHeap(src_id, "(before union) ");
         
-        cout << "--- Union Process ---\n";
-        this->unionFunction(other, true);
+        if (other.size == 0) {
+            cout << "H" << src_id << " empty => result is H" << dest_id << " (moving).\n\n";
+        } else if (this->size == 0) {
+            cout << "H" << dest_id << " empty => result is H" << src_id << " (moving).\n\n";
+        } else {
+            printRootDegrees(this->head, "dest");
+            printRootDegrees(other.head, "src");
+            cout << "Merging root lists in increasing degree order:\n";
+        }
+
+        // To achieve step-by-step verbose output, unionHelper[cite: 1] must be slightly modified.
+        // If 'verbose' is true inside unionHelper, print: 
+        // "  Degree X: link BX(key1) + BX(key2) => BX+1 root min_key (carry)"
+        // immediately prior to calling linkTrees().
+        this->unionFunction(other, true); 
         
-        cout << "--- After Union H" << h1_id << " ---\n";
-        this->visualizeHeap(h1_id);
-        cout << "=========================================\n";
+        cout << "Union complete. Final heap:\n";
+        this->visualizeHeap(dest_id, "(after union) ");
+        cout << "UNION VISUALIZATION END\n\n";
     }
 
 

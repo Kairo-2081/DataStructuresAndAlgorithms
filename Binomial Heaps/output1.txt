@@ -24,27 +24,45 @@ Printing Binomial Heap H2
 Heap size: 1
 Binomial Tree, B0
 Level 0: 15
-=== Visualizing Heap H2 ===
-Root B0 ->
-\--[15 : degree 0]
-===========================
-=== Visualizing Union of H1 and H2 ===
---- Before Union H1 ---
-=== Visualizing Heap H1 ===
-Heap is empty.
-===========================
---- Before Union H2 ---
-=== Visualizing Heap H2 ===
-Root B0 ->
-\--[15 : degree 0]
-===========================
---- Union Process ---
---- After Union H1 ---
-=== Visualizing Heap H1 ===
-Root B0 ->
-\--[15 : degree 0]
-===========================
-=========================================
+>>> Visualizing Heap H2 (Heap size: 1)
+    Binary: 1  => trees: B0  
+    Minimum key: 15 (in B0)
+    Number of trees: 1, max degree: 0
+    Heap-order valid: YES
+
+    --- Binomial Tree B0 (root 15, size 1) ---
+        15 [root, deg 0]
+    Level-order (sorted per level): L0:{15} 
+
+UNION OPERATION: H1 <- Union(H1, H2)
+>>> Visualizing Heap H1 (before union) (Heap size: 0)
+    (empty heap)
+    Binary size: 0 -> no trees
+>>> Visualizing Heap H2 (before union) (Heap size: 1)
+    Binary: 1  => trees: B0  
+    Minimum key: 15 (in B0)
+    Number of trees: 1, max degree: 0
+    Heap-order valid: YES
+
+    --- Binomial Tree B0 (root 15, size 1) ---
+        15 [root, deg 0]
+    Level-order (sorted per level): L0:{15} 
+
+H1 empty => result is H2 (moving).
+
+Union complete. Final heap:
+>>> Visualizing Heap H1 (after union) (Heap size: 1)
+    Binary: 1  => trees: B0  
+    Minimum key: 15 (in B0)
+    Number of trees: 1, max degree: 0
+    Heap-order valid: YES
+
+    --- Binomial Tree B0 (root 15, size 1) ---
+        15 [root, deg 0]
+    Level-order (sorted per level): L0:{15} 
+
+UNION VISUALIZATION END
+
 === Structural Statistics for Heap H1 ===
 Total Nodes (Size): 1
 Binomial Trees Present (Orders): B0

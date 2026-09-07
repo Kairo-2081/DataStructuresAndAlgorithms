@@ -40,3 +40,83 @@ Level 0: 10
 Level 1: 20 30 50
 Level 2: 40 60 70
 Level 3: 80
+UNION OPERATION: H1 <- Union(H1, H2)
+>>> Visualizing Heap H1 (before union) (Heap size: 10)
+    Binary: 1010  => trees: B1  B3  
+    Minimum key: 5 (in B1)
+    Number of trees: 2, max degree: 3
+    Heap-order valid: YES
+
+    --- Binomial Tree B1 (root 5, size 2) ---
+        5 [root, deg 1]
+    \-- 90 [deg 0]
+    Level-order (sorted per level): L0:{5} L1:{90} 
+
+    --- Binomial Tree B3 (root 10, size 8) ---
+        10 [root, deg 3]
+    +-- 50 [deg 2]
+    |   +-- 70 [deg 1]
+    |   |   \-- 80 [deg 0]
+    |   \-- 60 [deg 0]
+    +-- 30 [deg 1]
+    |   \-- 40 [deg 0]
+    \-- 20 [deg 0]
+    Level-order (sorted per level): L0:{10} L1:{20,30,50} L2:{40,60,70} L3:{80} 
+
+>>> Visualizing Heap H2 (before union) (Heap size: 0)
+    (empty heap)
+    Binary size: 0 -> no trees
+H2 empty => result is H1 (moving).
+
+Union complete. Final heap:
+>>> Visualizing Heap H1 (after union) (Heap size: 10)
+    Binary: 1010  => trees: B1  B3  
+    Minimum key: 5 (in B1)
+    Number of trees: 2, max degree: 3
+    Heap-order valid: YES
+
+    --- Binomial Tree B1 (root 5, size 2) ---
+        5 [root, deg 1]
+    \-- 90 [deg 0]
+    Level-order (sorted per level): L0:{5} L1:{90} 
+
+    --- Binomial Tree B3 (root 10, size 8) ---
+        10 [root, deg 3]
+    +-- 50 [deg 2]
+    |   +-- 70 [deg 1]
+    |   |   \-- 80 [deg 0]
+    |   \-- 60 [deg 0]
+    +-- 30 [deg 1]
+    |   \-- 40 [deg 0]
+    \-- 20 [deg 0]
+    Level-order (sorted per level): L0:{10} L1:{20,30,50} L2:{40,60,70} L3:{80} 
+
+UNION VISUALIZATION END
+
+>>> Visualizing Heap H1 (Heap size: 10)
+    Binary: 1010  => trees: B1  B3  
+    Minimum key: 5 (in B1)
+    Number of trees: 2, max degree: 3
+    Heap-order valid: YES
+
+    --- Binomial Tree B1 (root 5, size 2) ---
+        5 [root, deg 1]
+    \-- 90 [deg 0]
+    Level-order (sorted per level): L0:{5} L1:{90} 
+
+    --- Binomial Tree B3 (root 10, size 8) ---
+        10 [root, deg 3]
+    +-- 50 [deg 2]
+    |   +-- 70 [deg 1]
+    |   |   \-- 80 [deg 0]
+    |   \-- 60 [deg 0]
+    +-- 30 [deg 1]
+    |   \-- 40 [deg 0]
+    \-- 20 [deg 0]
+    Level-order (sorted per level): L0:{10} L1:{20,30,50} L2:{40,60,70} L3:{80} 
+
+=== Structural Statistics for Heap H1 ===
+Total Nodes (Size): 10
+Binomial Trees Present (Orders): B1, B3
+Max Tree Order / Depth: B3 (Height: 3)
+=======================================
