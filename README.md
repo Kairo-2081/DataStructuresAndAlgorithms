@@ -157,3 +157,9 @@ SITTING
 | Heaps | `codes_student/input.txt` and `codes_student/output.txt` |
 | Binomial heaps | `binomial_heap_sample_io/test_01` to `test_10`, each with `input.txt` and `output.txt`, plus `input1.txt` and `input2.txt` |
 | AVL trees | `2405010/Sample IO/` with test cases and expected outputs for the AVL tree and the interval scheduler |
+
+## Notes
+
+- The AVL programs are the only ones that do not build on Linux, because of `windows.h`.
+- The Heaps driver overwrites `output.txt` in the folder it runs from.
+- Some folders keep both the starter files and the solution, so a file with the same name can appear twice. Check which folder you are in before editing.
