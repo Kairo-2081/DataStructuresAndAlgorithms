@@ -147,3 +147,13 @@ Example for the edit distance program:
 KITTEN
 SITTING
 ```
+
+## Sample data
+
+| Topic | Sample files |
+| --- | --- |
+| Array list and linked list | `2405010/in.txt` |
+| BST | `in_task1.txt` with `out_task1.txt`, and `in_task2.txt` with `out_task2.txt` |
+| Heaps | `codes_student/input.txt` and `codes_student/output.txt` |
+| Binomial heaps | `binomial_heap_sample_io/test_01` to `test_10`, each with `input.txt` and `output.txt`, plus `input1.txt` and `input2.txt` |
+| AVL trees | `2405010/Sample IO/` with test cases and expected outputs for the AVL tree and the interval scheduler |
