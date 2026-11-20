@@ -98,3 +98,18 @@ g++ -std=c++17 2405010.cpp -o graphs && ./graphs
 cd "Divide and Conquer"
 g++ -std=c++17 "2405010 (1).cpp" -o cities && ./cities
 ```
+
+### Dynamic programming
+
+```bash
+cd "Dynamic Programming/2405010"
+g++ -std=c++17 2405010.cpp -o edit_distance && ./edit_distance
+```
+
+### Maximum flow
+
+```bash
+cd "Maximum Flow/2405010"
+g++ -std=c++17 1.cpp -o maxflow && ./maxflow
+g++ -std=c++17 2.cpp -o aircraft && ./aircraft
+```
