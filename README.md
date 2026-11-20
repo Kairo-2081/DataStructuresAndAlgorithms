@@ -2,6 +2,15 @@
 
 C++ (and some C) implementations of the data structures and algorithms from my university coursework: lists, stacks and queues, binary search trees, AVL trees, heaps, binomial heaps, hashing, graphs, divide and conquer, dynamic programming and maximum flow. Each topic folder holds the assignment PDF next to the code written for it.
 
+## Contents
+
+- [Topics](#topics)
+- [Repository layout](#repository-layout)
+- [Build and run](#build-and-run)
+- [Input formats](#input-formats)
+- [Sample data](#sample-data)
+- [Notes](#notes)
+
 ## Topics
 
 | Topic | Folder | What is implemented | Language |
