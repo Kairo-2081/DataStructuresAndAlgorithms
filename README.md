@@ -45,3 +45,33 @@ g++ -std=c++17 arrayqueue.cpp arrayqueue_tester.cpp -o arrayqueue_test && ./arra
 g++ -std=c++17 listqueue.cpp listqueue_tester.cpp -o listqueue_test && ./listqueue_test
 g++ -std=c++17 syntax_checker.cpp syntax_checker_tester.cpp -o syntax_test && ./syntax_test
 ```
+
+### Binary search tree
+
+The drivers include `BST.hpp` from the folder above, so add it to the include path and pass the input file as an argument:
+
+```bash
+cd BST
+g++ -std=c++17 -I . 2405010/task1.cpp -o task1 && ./task1 in_task1.txt
+g++ -std=c++17 -I . 2405010/task2.cpp -o task2 && ./task2 in_task2.txt
+```
+
+### Heaps
+
+`main.cpp` reads `input.txt` and writes `output.txt` in the current directory. Run it in a scratch folder, so the sample files in `codes_student/` are not overwritten, and compare the result with `codes_student/output.txt`:
+
+```bash
+mkdir heap-run && cd heap-run          # from the repository root
+cp ../Heaps/codes_student/input.txt .
+g++ -std=c++17 -I ../Heaps/2405010 ../Heaps/2405010/main.cpp -o heap
+./heap
+diff --strip-trailing-cr -Z output.txt ../Heaps/codes_student/output.txt
+```
+
+### Binomial heaps
+
+```bash
+cd "Binomial Heaps"
+g++ -std=c++17 2405010.cpp -o binomial
+./binomial < binomial_heap_sample_io/test_01/input.txt
+```
