@@ -127,3 +127,23 @@ IntervalScheduler.exe testcase_basic_interval.txt output_basic_interval.txt
 ```
 
 The sample test cases and expected outputs are in `AVL Trees/2405010/Sample IO/`.
+
+## Input formats
+
+The programs without sample files read from standard input:
+
+| Program | Input |
+| --- | --- |
+| `Maximum Flow/2405010/1.cpp` | `N M`, then `M` lines of `u v capacity`. Prints the maximum flow from node `0` to node `N-1`. |
+| `Maximum Flow/2405010/2.cpp` | `F`, then `F` lines of `flightID departureCity arrivalCity departureTime arrivalTime`, with times as `HH:MM`. Prints the number of aircraft and each aircraft's flights. |
+| `Dynamic Programming/2405010/2405010.cpp` | `insertCost deleteCost replaceCost`, then the two sequences, each 1 to 5000 characters. Prints the minimum cost and the operations. |
+| `Graphs/2405010.cpp` | The number of teams, then pairs written as `[u, v]`. Prints the groups. |
+| `Divide and Conquer/2405010 (1).cpp` | The number of cities, then the base case (2 to 50), then one `id x y` line per city. Prints the total cost and the chosen edges. |
+
+Example for the edit distance program:
+
+```text
+1 1 1
+KITTEN
+SITTING
+```
