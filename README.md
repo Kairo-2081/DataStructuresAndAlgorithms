@@ -75,3 +75,26 @@ cd "Binomial Heaps"
 g++ -std=c++17 2405010.cpp -o binomial
 ./binomial < binomial_heap_sample_io/test_01/input.txt
 ```
+
+### Hashing
+
+```bash
+cd Hashing
+g++ -std=c++17 2405010.cpp -o hashing && ./hashing
+```
+
+It needs no input and prints a table of collisions and average hits for each collision strategy and hash function.
+
+### Graphs
+
+```bash
+cd Graphs
+g++ -std=c++17 2405010.cpp -o graphs && ./graphs
+```
+
+### Divide and conquer
+
+```bash
+cd "Divide and Conquer"
+g++ -std=c++17 "2405010 (1).cpp" -o cities && ./cities
+```
