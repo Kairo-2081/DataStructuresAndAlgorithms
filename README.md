@@ -24,3 +24,24 @@ C++ (and some C) implementations of the data structures and algorithms from my u
 - Files next to the PDF, and in folders such as `codes_student/`, are the starter code supplied with the assignment.
 - My solutions are the subfolders named `2405010` (my student ID). In `Hashing/`, `Graphs/`, `Binomial Heaps/` and `Divide and Conquer/` the solution is a single file named `2405010.cpp` (or similar) in the folder itself.
 - Sample inputs and expected outputs live in `in_*.txt` / `out_*.txt` files and in folders such as `binomial_heap_sample_io/` and `Sample IO/`.
+
+## Build and run
+
+Everything except the AVL programs compiles with g++ 13 (`-std=c++17`) on Linux; the C programs use gcc. Compile and run each program from its own folder, because several of them read files from the current directory. File and folder names contain spaces, so keep the quotes.
+
+### Array list and linked list
+
+```bash
+cd "Array List and Linked list/2405010"
+gcc skeleton_main.c -o lists
+./lists < in.txt
+```
+
+### Stack and queue
+
+```bash
+cd "Stack And Queue/2405010"
+g++ -std=c++17 arrayqueue.cpp arrayqueue_tester.cpp -o arrayqueue_test && ./arrayqueue_test
+g++ -std=c++17 listqueue.cpp listqueue_tester.cpp -o listqueue_test && ./listqueue_test
+g++ -std=c++17 syntax_checker.cpp syntax_checker_tester.cpp -o syntax_test && ./syntax_test
+```
