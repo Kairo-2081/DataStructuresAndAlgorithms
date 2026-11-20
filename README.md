@@ -113,3 +113,17 @@ cd "Maximum Flow/2405010"
 g++ -std=c++17 1.cpp -o maxflow && ./maxflow
 g++ -std=c++17 2.cpp -o aircraft && ./aircraft
 ```
+
+### AVL trees (Windows only)
+
+Both programs include `windows.h` for high-resolution timing, so they build only with a Windows toolchain such as MinGW. The commands, including the PowerShell steps that write the timing report, are in `AVL Trees/2405010/README.txt`:
+
+```text
+g++ AVLTree.cpp -o avl_tree
+avl_tree.exe testcase_avl.txt output_avl.txt
+
+g++ IntervalScheduler.cpp -o IntervalScheduler
+IntervalScheduler.exe testcase_basic_interval.txt output_basic_interval.txt
+```
+
+The sample test cases and expected outputs are in `AVL Trees/2405010/Sample IO/`.
