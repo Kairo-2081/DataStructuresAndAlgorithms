@@ -95,6 +95,12 @@ Five cities at (0,0), (3,4), (6,1), (1,7) and (8,8) with a base case of 2. The t
 
 <img src="./.github/assets/readme/dsa-cities.jpg" alt="Terminal output: total cost 22.1994 and four chosen edges" width="100%" />
 
+### Binary search tree
+
+`task1` run on `in_task1.txt`. The full output is identical to the repository's `out_task1.txt`.
+
+<img src="./.github/assets/readme/dsa-bst.jpg" alt="Terminal output of the BST driver: inserts, minimum and maximum lookups and a duplicate-key rejection" width="100%" />
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
