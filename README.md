@@ -20,6 +20,16 @@ graphs, divide and conquer, dynamic programming and maximum flow.
 
 Each topic folder holds the assignment PDF next to the code written for it.
 
+## At a glance
+
+| | |
+| --- | --- |
+| **Topics** | 11, from array lists to maximum flow |
+| **Languages** | C++17 for almost everything, C for the list assignment |
+| **Build** | g++ 13 on Linux; only the AVL programs need Windows (`windows.h`) |
+| **Samples** | Input and expected-output files for lists, BSTs, heaps, binomial heaps and AVL trees |
+| **Checked** | The BST driver reproduces `out_task1.txt` exactly, and the binomial heap matches all ten samples apart from one punctuation mark (see Notes) |
+
 ## Contents
 
 - [Topics](#topics)
