@@ -55,6 +55,24 @@ Each topic folder holds the assignment PDF next to the code written for it.
 | Dynamic programming | `Dynamic Programming/` | Weighted edit distance between two sequences, with separate insert, delete and replace costs, and the sequence of operations. Includes a PDF report. | C++ |
 | Maximum flow | `Maximum Flow/` | `1.cpp`: Ford-Fulkerson maximum flow. `2.cpp`: the minimum number of aircraft needed to operate a set of flights, modelled as a flow problem. | C++ |
 
+## Topic map
+
+```mermaid
+flowchart LR
+    L[Array list<br/>Linked list] --> SQ[Stack and queue]
+    SQ --> T[BST]
+    T --> AVL[AVL trees]
+    T --> H[Heaps]
+    H --> BH[Binomial heaps]
+    L --> HS[Hashing]
+    SQ --> G[Graphs]
+    G --> DC[Divide and conquer]
+    DC --> DP[Dynamic programming]
+    G --> MF[Maximum flow]
+```
+
+The arrows follow the order the ideas build on each other, not the order of the course.
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
