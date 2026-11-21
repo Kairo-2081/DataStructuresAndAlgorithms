@@ -83,6 +83,12 @@ Ten thousand random ten-letter keys are inserted into a table with each of two h
 
 <img src="./.github/assets/readme/dsa-hashing.jpg" alt="Terminal output: a table of collisions and average hits for chaining, double hashing and custom probing with two hash functions" width="100%" />
 
+### Edit distance
+
+Input `2 1 3`, then `SUNDAY` and `SATURDAY` (insert 2, delete 1, replace 3). The cheapest edit costs 7: insert A and T, delete N, insert R.
+
+<img src="./.github/assets/readme/dsa-edit-distance.jpg" alt="Terminal output: minimum cost 7 and the sequence of match, insert and delete operations" width="100%" />
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
