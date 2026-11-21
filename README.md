@@ -1,6 +1,24 @@
+<div align="center">
+
+<img src="./.github/assets/readme/dsa-logo.svg" alt="Data Structures and Algorithms logo" width="88" />
+
 # Data Structures and Algorithms
 
-C++ (and some C) implementations of the data structures and algorithms from my university coursework: lists, stacks and queues, binary search trees, AVL trees, heaps, binomial heaps, hashing, graphs, divide and conquer, dynamic programming and maximum flow. Each topic folder holds the assignment PDF next to the code written for it.
+**Eleven topics of university coursework, written in C++ and C.**
+
+Lists, stacks and queues, BSTs, AVL trees, heaps, binomial heaps, hashing,
+graphs, divide and conquer, dynamic programming and maximum flow.
+
+![C++](https://img.shields.io/badge/C%2B%2B-17-00599c?logo=cplusplus&logoColor=white)
+![C](https://img.shields.io/badge/C-lists-a8b9cc?logo=c&logoColor=black)
+![Topics](https://img.shields.io/badge/topics-11-555555)
+![Course](https://img.shields.io/badge/BUET-CSE%20106%20%7C%20208-555555)
+
+[Topics](#topics) · [Results](#results) · [Flows](#flows) · [Build and run](#build-and-run) · [Notes](#notes)
+
+</div>
+
+Each topic folder holds the assignment PDF next to the code written for it.
 
 ## Contents
 
