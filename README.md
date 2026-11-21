@@ -101,6 +101,12 @@ Five cities at (0,0), (3,4), (6,1), (1,7) and (8,8) with a base case of 2. The t
 
 <img src="./.github/assets/readme/dsa-bst.jpg" alt="Terminal output of the BST driver: inserts, minimum and maximum lookups and a duplicate-key rejection" width="100%" />
 
+### Binomial heap
+
+The first 22 lines for `binomial_heap_sample_io/test_01`.
+
+<img src="./.github/assets/readme/dsa-binomial.jpg" alt="Terminal output of the binomial heap: printing empty heaps, find-min, insert and extract-min" width="100%" />
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
