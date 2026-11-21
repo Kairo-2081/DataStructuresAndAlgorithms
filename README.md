@@ -107,6 +107,24 @@ The first 22 lines for `binomial_heap_sample_io/test_01`.
 
 <img src="./.github/assets/readme/dsa-binomial.jpg" alt="Terminal output of the binomial heap: printing empty heaps, find-min, insert and extract-min" width="100%" />
 
+## Flows
+
+### Edit distance
+
+```mermaid
+flowchart TD
+    A[Cell i, j of the cost table] --> B{Last characters<br/>equal?}
+    B -- yes --> C[Match: cost of i-1, j-1]
+    B -- no --> D[Replace: cost of i-1, j-1 plus replace cost]
+    A --> E[Insert: cost of i, j-1 plus insert cost]
+    A --> F[Delete: cost of i-1, j plus delete cost]
+    C --> G[Take the minimum]
+    D --> G
+    E --> G
+    F --> G
+    G --> H[Walk back from the last cell to list the operations]
+```
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
