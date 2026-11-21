@@ -32,7 +32,11 @@ Each topic folder holds the assignment PDF next to the code written for it.
 
 ## Contents
 
+- [At a glance](#at-a-glance)
 - [Topics](#topics)
+- [Topic map](#topic-map)
+- [Results](#results)
+- [Flows](#flows)
 - [Repository layout](#repository-layout)
 - [Build and run](#build-and-run)
 - [Input formats](#input-formats)
