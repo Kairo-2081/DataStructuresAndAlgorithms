@@ -89,6 +89,12 @@ Input `2 1 3`, then `SUNDAY` and `SATURDAY` (insert 2, delete 1, replace 3). The
 
 <img src="./.github/assets/readme/dsa-edit-distance.jpg" alt="Terminal output: minimum cost 7 and the sequence of match, insert and delete operations" width="100%" />
 
+### Divide and conquer
+
+Five cities at (0,0), (3,4), (6,1), (1,7) and (8,8) with a base case of 2. The total of 22.1994 is the sum of the four edges listed, which I checked by hand.
+
+<img src="./.github/assets/readme/dsa-cities.jpg" alt="Terminal output: total cost 22.1994 and four chosen edges" width="100%" />
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
