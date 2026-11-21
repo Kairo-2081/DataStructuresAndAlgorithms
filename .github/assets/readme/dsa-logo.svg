@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="176" viewBox="0 0 176 176" role="img" aria-label="Data Structures and Algorithms">
+  <rect width="176" height="176" rx="40" fill="#14202e"/>
+  <g stroke="#9fb6cf" stroke-width="5" stroke-linecap="round"><path d="M88 52L56 96M88 52L120 96M56 96L40 132M56 96L72 132M120 96L104 132M120 96L136 132"/></g>
+  <g fill="#14202e" stroke="#7dd3fc" stroke-width="6"><circle cx="88" cy="48" r="16"/><circle cx="56" cy="96" r="14"/><circle cx="120" cy="96" r="14"/></g>
+  <g fill="#a7f3d0"><circle cx="40" cy="134" r="9"/><circle cx="72" cy="134" r="9"/><circle cx="104" cy="134" r="9"/><circle cx="136" cy="134" r="9"/></g>
+</svg>

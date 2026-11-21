@@ -1,10 +1,42 @@
+<div align="center">
+
+<img src="./.github/assets/readme/dsa-logo.svg" alt="Data Structures and Algorithms logo" width="88" />
+
 # Data Structures and Algorithms
 
-C++ (and some C) implementations of the data structures and algorithms from my university coursework: lists, stacks and queues, binary search trees, AVL trees, heaps, binomial heaps, hashing, graphs, divide and conquer, dynamic programming and maximum flow. Each topic folder holds the assignment PDF next to the code written for it.
+**Eleven topics of university coursework, written in C++ and C.**
+
+Lists, stacks and queues, BSTs, AVL trees, heaps, binomial heaps, hashing,
+graphs, divide and conquer, dynamic programming and maximum flow.
+
+![C++](https://img.shields.io/badge/C%2B%2B-17-00599c?logo=cplusplus&logoColor=white)
+![C](https://img.shields.io/badge/C-lists-a8b9cc?logo=c&logoColor=black)
+![Topics](https://img.shields.io/badge/topics-11-555555)
+![Course](https://img.shields.io/badge/BUET-CSE%20106%20%7C%20208-555555)
+
+[Topics](#topics) · [Results](#results) · [Flows](#flows) · [Build and run](#build-and-run) · [Notes](#notes)
+
+</div>
+
+Each topic folder holds the assignment PDF next to the code written for it.
+
+## At a glance
+
+| | |
+| --- | --- |
+| **Topics** | 11, from array lists to maximum flow |
+| **Languages** | C++17 for almost everything, C for the list assignment |
+| **Build** | g++ 13 on Linux; only the AVL programs need Windows (`windows.h`) |
+| **Samples** | Input and expected-output files for lists, BSTs, heaps, binomial heaps and AVL trees |
+| **Checked** | The BST driver reproduces `out_task1.txt` exactly, and the binomial heap matches all ten samples apart from one punctuation mark (see Notes) |
 
 ## Contents
 
+- [At a glance](#at-a-glance)
 - [Topics](#topics)
+- [Topic map](#topic-map)
+- [Results](#results)
+- [Flows](#flows)
 - [Repository layout](#repository-layout)
 - [Build and run](#build-and-run)
 - [Input formats](#input-formats)
@@ -26,6 +58,102 @@ C++ (and some C) implementations of the data structures and algorithms from my u
 | Divide and conquer | `Divide and Conquer/` | Connects cities given by coordinates with a minimum-cost set of edges, using divide and conquer with a configurable base case of 2 to 50 cities. | C++ |
 | Dynamic programming | `Dynamic Programming/` | Weighted edit distance between two sequences, with separate insert, delete and replace costs, and the sequence of operations. Includes a PDF report. | C++ |
 | Maximum flow | `Maximum Flow/` | `1.cpp`: Ford-Fulkerson maximum flow. `2.cpp`: the minimum number of aircraft needed to operate a set of flights, modelled as a flow problem. | C++ |
+
+## Topic map
+
+```mermaid
+flowchart LR
+    L[Array list<br/>Linked list] --> SQ[Stack and queue]
+    SQ --> T[BST]
+    T --> AVL[AVL trees]
+    T --> H[Heaps]
+    H --> BH[Binomial heaps]
+    L --> HS[Hashing]
+    SQ --> G[Graphs]
+    G --> DC[Divide and conquer]
+    DC --> DP[Dynamic programming]
+    G --> MF[Maximum flow]
+```
+
+The arrows follow the order the ideas build on each other, not the order of the course.
+
+## Results
+
+Real output from the programs in this repository, compiled with g++ 13 and run from the repository's own sample inputs or from a small input stated in each caption.
+
+### Hashing
+
+Ten thousand random ten-letter keys are inserted into a table with each of two hash functions and three collision strategies, then 1,000 keys are searched. The run is deterministic.
+
+<img src="./.github/assets/readme/dsa-hashing.jpg" alt="Terminal output: a table of collisions and average hits for chaining, double hashing and custom probing with two hash functions" width="100%" />
+
+### Edit distance
+
+Input `2 1 3`, then `SUNDAY` and `SATURDAY` (insert 2, delete 1, replace 3). The cheapest edit costs 7: insert A and T, delete N, insert R.
+
+<img src="./.github/assets/readme/dsa-edit-distance.jpg" alt="Terminal output: minimum cost 7 and the sequence of match, insert and delete operations" width="100%" />
+
+### Divide and conquer
+
+Five cities at (0,0), (3,4), (6,1), (1,7) and (8,8) with a base case of 2. The total of 22.1994 is the sum of the four edges listed, which I checked by hand.
+
+<img src="./.github/assets/readme/dsa-cities.jpg" alt="Terminal output: total cost 22.1994 and four chosen edges" width="100%" />
+
+### Binary search tree
+
+`task1` run on `in_task1.txt`. The full output is identical to the repository's `out_task1.txt`.
+
+<img src="./.github/assets/readme/dsa-bst.jpg" alt="Terminal output of the BST driver: inserts, minimum and maximum lookups and a duplicate-key rejection" width="100%" />
+
+### Binomial heap
+
+The first 22 lines for `binomial_heap_sample_io/test_01`.
+
+<img src="./.github/assets/readme/dsa-binomial.jpg" alt="Terminal output of the binomial heap: printing empty heaps, find-min, insert and extract-min" width="100%" />
+
+## Flows
+
+### Edit distance
+
+```mermaid
+flowchart TD
+    A[Cell i, j of the cost table] --> B{Last characters<br/>equal?}
+    B -- yes --> C[Match: cost of i-1, j-1]
+    B -- no --> D[Replace: cost of i-1, j-1 plus replace cost]
+    A --> E[Insert: cost of i, j-1 plus insert cost]
+    A --> F[Delete: cost of i-1, j plus delete cost]
+    C --> G[Take the minimum]
+    D --> G
+    E --> G
+    F --> G
+    G --> H[Walk back from the last cell to list the operations]
+```
+
+### Hashing
+
+```mermaid
+flowchart LR
+    K[Random key] --> H{Hash function}
+    H -- Hash1: DJB2 --> I[Slot]
+    H -- Hash2: FNV-1a --> I[Slot]
+    I --> S{Strategy}
+    S -- chaining --> C[Append to the slot's list]
+    S -- double hashing --> D[Step by i times an SDBM hash, mod 10007 plus 1]
+    S -- custom probing --> P[Step by a1 x i x SDBM hash plus a2 x i squared]
+    C --> R[Count collisions and average hits]
+    D --> R
+    P --> R
+```
+
+### Checking a program against its samples
+
+```mermaid
+flowchart LR
+    S[Compile with g++] --> R[Run on the sample input]
+    R --> D{diff with the<br/>sample output}
+    D -- same --> OK([Matches])
+    D -- different --> N[Inspect the difference]
+```
 
 ## Repository layout
 
@@ -172,3 +300,6 @@ SITTING
 - The AVL programs are the only ones that do not build on Linux, because of `windows.h`.
 - The Heaps driver overwrites `output.txt` in the folder it runs from.
 - Some folders keep both the starter files and the solution, so a file with the same name can appear twice. Check which folder you are in before editing.
+- The edit distance program loops forever on end-of-input if it is given lowercase letters, because it asks for the sequences again and the read keeps failing. Sequences must be upper case.
+- The binomial heap matches all ten sample outputs except that it prints `Heap H1 is empty` and the samples print `Heap H1 is empty.` with a full stop. With the full stop added, tests 01, 03, 04, 06, 08, 09 and 10 match, and 02, 05 and 07 match as they are.
+- The hashing program is deterministic, so its counts are the same on every run.
