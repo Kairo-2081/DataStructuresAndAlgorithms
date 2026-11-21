@@ -73,6 +73,16 @@ flowchart LR
 
 The arrows follow the order the ideas build on each other, not the order of the course.
 
+## Results
+
+Real output from the programs in this repository, compiled with g++ 13 and run from the repository's own sample inputs or from a small input stated in each caption.
+
+### Hashing
+
+Ten thousand random ten-letter keys are inserted into a table with each of two hash functions and three collision strategies, then 1,000 keys are searched. The run is deterministic.
+
+<img src="./.github/assets/readme/dsa-hashing.jpg" alt="Terminal output: a table of collisions and average hits for chaining, double hashing and custom probing with two hash functions" width="100%" />
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
