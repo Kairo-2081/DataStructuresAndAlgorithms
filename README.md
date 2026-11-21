@@ -141,6 +141,16 @@ flowchart LR
     P --> R
 ```
 
+### Checking a program against its samples
+
+```mermaid
+flowchart LR
+    S[Compile with g++] --> R[Run on the sample input]
+    R --> D{diff with the<br/>sample output}
+    D -- same --> OK([Matches])
+    D -- different --> N[Inspect the difference]
+```
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
