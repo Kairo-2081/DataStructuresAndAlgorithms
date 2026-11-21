@@ -125,6 +125,22 @@ flowchart TD
     G --> H[Walk back from the last cell to list the operations]
 ```
 
+### Hashing
+
+```mermaid
+flowchart LR
+    K[Random key] --> H{Hash function}
+    H -- Hash1: DJB2 --> I[Slot]
+    H -- Hash2: FNV-1a --> I[Slot]
+    I --> S{Strategy}
+    S -- chaining --> C[Append to the slot's list]
+    S -- double hashing --> D[Step by i times an SDBM hash, mod 10007 plus 1]
+    S -- custom probing --> P[Step by a1 x i x SDBM hash plus a2 x i squared]
+    C --> R[Count collisions and average hits]
+    D --> R
+    P --> R
+```
+
 ## Repository layout
 
 - Each folder is one assignment and contains its PDF.
