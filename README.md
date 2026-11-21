@@ -296,3 +296,6 @@ SITTING
 - The AVL programs are the only ones that do not build on Linux, because of `windows.h`.
 - The Heaps driver overwrites `output.txt` in the folder it runs from.
 - Some folders keep both the starter files and the solution, so a file with the same name can appear twice. Check which folder you are in before editing.
+- The edit distance program loops forever on end-of-input if it is given lowercase letters, because it asks for the sequences again and the read keeps failing. Sequences must be upper case.
+- The binomial heap matches all ten sample outputs except that it prints `Heap H1 is empty` and the samples print `Heap H1 is empty.` with a full stop. With the full stop added, tests 01, 03, 04, 06, 08, 09 and 10 match, and 02, 05 and 07 match as they are.
+- The hashing program is deterministic, so its counts are the same on every run.
